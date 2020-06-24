@@ -9,16 +9,19 @@ These instructions will get you a copy of the project up and running on your loc
 Before you continue, ensure you have met the following requirements: 
 
 * You have installed yarn/npm
+* You have installed babel
 * You have a basic understanding of REACT
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
+Install yarn (in the commmand line):
+* install npm if you do not already have it, once you have done so
+* npm install -g yarn
+Install babel: 
+* npm install babel-cli babel-core --save
+* after you have done both of these things be sure to run yarn install to get all of the dependencies
 
-Say what the step will be
-
-```
-Give the example
 
 ## Running the tests
 

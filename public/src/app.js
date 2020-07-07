@@ -1,11 +1,16 @@
-
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import IndecisionApp from './components/IndecisionApp';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import AppRouter from './routers/AppRouter';
 
+const jsx = (
+    <div>
+        <AppRouter />
+    </div>
+);
 
-ReactDOM.render(<p>This is my boilerplate </p>, document.getElementById('app'));
+ReactDOM.render(jsx , document.getElementById('app'));
 

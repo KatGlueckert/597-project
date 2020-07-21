@@ -9,8 +9,6 @@ export default (state = capstoneStudentReducerDefaultState, action) =>{
                 ...state,
                 action.student
             ]
-        case 'REMOVE_CAPSTONE_STUDENT':
-            return state.filter(({ id }) => id !== action.id)
         case 'EDIT_CAPSTONE_STUDENT':
             return state.map((student) => {
                 if(student.id === action.id){
@@ -20,10 +18,12 @@ export default (state = capstoneStudentReducerDefaultState, action) =>{
                     }
                 }else{
                     return{
-                        student
+                        ...student
                     }
                 }
-            })
+            });
+        case 'REMOVE_CAPSTONE_STUDENT':
+            return state.filter(({ id }) => id !== action.id);
         //case 'SELECT_DRAFT_GROUPS'
         default: 
             return state; 

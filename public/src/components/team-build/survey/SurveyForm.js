@@ -1,15 +1,19 @@
 import React from 'react';
 
 export default class SurveyForm extends React.Component {
-    state = {
-            
-                internships: '',
-                experienceAtInternships: '',
-                subjectsInterestedIn: '',
-                strongestCatagories: [],
-                weakestCategories: [],
-                mastersProgramInterest: ''
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            internships: '',
+            experienceAtInternships: '',
+            subjectsInterestedIn: '',
+            strongestCatagories: [],
+            weakestCategories: [],
+            mastersProgramInterest: '',
+            errorMessage: undefined
+        }
+    }
 
     onInternshipsChange = (e) =>{
         const internships = e.target.value;
@@ -27,24 +31,57 @@ export default class SurveyForm extends React.Component {
     }
 
     onStrongestChange = (e) => {
-        const strongestCatagories = e.target.value;
-        this.setState(() => ({ strongestCatagories }));
+        const newCatagory = e.target.value;
+        var strongestCatagories = [];
+        if( this.state.strongestCatagories.includes(newCatagory)){
+            strongestCatagories = this.state.strongestCatagories.filter((category) => category !== newCatagory );
+        }else{
+            strongestCatagories = this.state.strongestCatagories.concat(newCatagory);
+        }
+
+        this.setState(() => ({strongestCatagories}));
     }
 
     onWeakestChange = (e) => {
-        const weakestCategories = e.target.value;
-        this.setState(() => ({ weakestCategories }));
+        const newCatagory = e.target.value;
+        var weakestCategories = [];
+        if( this.state.weakestCategories.includes(newCatagory)){
+            weakestCategories = this.state.weakestCategories.filter((category) => category !== newCatagory );
+        }else{
+            weakestCategories = this.state.weakestCategories.concat(newCatagory);
+        }
+
+        this.setState(() => ({weakestCategories}));
     }
 
     onMastersChange = (e) => {
         const mastersProgramInterest = e.target.value;
         this.setState(() => ({ mastersProgramInterest}));
     }
-    
+
+    onSubmit = (e) => {
+        e.preventDefault();
+
+        if(!this.state.internships || !this.state.experienceAtInternships || !this.state.subjectsInterestedIn){
+            this.setState(() => ({ errorMessage: 'Please fill out all catagories!'}));
+        }else{
+            this.setState(() => ({ errorMessage: undefined}));
+            this.props.onSubmit({
+                internships: this.state.internships,
+                experienceAtInternships: this.state.experienceAtInternships,
+                subjectsInterestedIn: this.state.subjectsInterestedIn,
+                strongestCatagories: this.state.strongestCatagories,
+                weakestCategories: this.state.weakestCategories,
+                mastersProgramInterest: this.state.mastersProgramInterest
+            });
+        }
+    };
+
     render() {
         return (
             <div>
-            <form>
+            {this.state.errorMessage && this.state.errorMessage}
+            <form onSubmit={this.onSubmit}>
             <label>
                 Where did you intern this past summer? If you’ve had more than one internship, or have participated in a co-op, please include them as well.
                 <textarea
@@ -53,6 +90,7 @@ export default class SurveyForm extends React.Component {
                 >
                 </textarea>
             </label>
+            <br />
             <label>
                 Please highlight your experiences at your internship(s). Be descriptive in your explanation; include any technologies you may have used.
                 <textarea
@@ -61,6 +99,7 @@ export default class SurveyForm extends React.Component {
                 >
                 </textarea>
             </label>
+            <br />
             <label>
                 Please list three different subject areas that you would be interested in learning more about during your Capstone experience. Be specific. (Examples include: web development, database architecture, workflows, etc.)
                 <textarea
@@ -69,6 +108,7 @@ export default class SurveyForm extends React.Component {
                 >
                 </textarea>
             </label>
+            <br />
             <label>
                 Based on your performance in past MIS classes and your internship experience, in which of the following categories would you say you feel strongest?
                 <select
@@ -82,6 +122,7 @@ export default class SurveyForm extends React.Component {
                     <option value="Team Skills">Team Skills</option>
                 </select>
             </label>
+            <br />
             <label>
                 Based on your performance in past MIS classes and your internship experience, in which of the following categories would you say you feel weakest?
                 <select
@@ -95,6 +136,7 @@ export default class SurveyForm extends React.Component {
                     <option value="Team Skills">Team Skills</option>
                 </select>
             </label>
+            <br />
             <label>
                 Do you have any interest in the MIS Masters’ program?
                 <select
@@ -106,7 +148,7 @@ export default class SurveyForm extends React.Component {
                     <option value="Maybe">Maybe</option>
                 </select>
             </label>
-
+            <button>Submit Form</button>
             </form>
             </div>
         )

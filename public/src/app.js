@@ -3,19 +3,18 @@ import ReactDOM from 'react-dom';
 import AppRouter from './routers/AppRouter';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
-import { addStudentSurvey } from './actions/team-build/capstoneStudentSurveys';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
+import { addStudent } from './actions/team-build/capstoneStudents';
 
 
 const store = configureStore();
 
-store.dispatch(addStudentSurvey({internships: 'International Paper and Pariveda'}));
-store.dispatch(addStudentSurvey({internships: 'The Audience'}));
-
 const state = store.getState();
 console.log(state);
 
+store.dispatch(addStudent({name: 'Riley', email: 'riley@email.com', rank: 1}));
+store.dispatch(addStudent({name: 'Emma', email: 'emma@email.com', rank: 2}));
 
 const jsx = (
     <Provider store={store}>

@@ -6,16 +6,17 @@ import { editStudent, removeStudent } from '../../../actions/team-build/capstone
 const EditStudentPage = (props) => {
     return (
         <div>
+            <h1> Edit Student </h1>
             <StudentForm
                 student={props.student}
                 onSubmit={(student) => {
                     props.dispatch(editStudent(props.student.id, student));
-                    props.history.push('/team/students');
+                    props.history.push('/team/dashboard');
                 }}
             />
             <button onClick={() => {
                 props.dispatch(removeStudent({id: props.student.id}));
-                props.history.push('/team/students');
+                props.history.push('/team/dashboard');
             }} > Remove </button>
         </div>
     );

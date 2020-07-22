@@ -4,7 +4,7 @@ import StudentListItem from './StudentListItem';
 
 const StudentList = (props) => (
     <div>
-        <h1>Student List</h1>
+        <h1>Students</h1>
         {props.students.map((student) => (
             <StudentListItem {...student} key={student.id}  />
         ))}

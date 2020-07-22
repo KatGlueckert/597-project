@@ -9,7 +9,7 @@ const NewSurveyPage = (props) => (
         <SurveyForm
             onSubmit={(survey) => {
                 props.dispatch(addStudentSurvey(props.student.id, survey));
-                props.history.push('/');
+                props.history.push('/team/survey/thankyou');
             }}
         />
     </div>

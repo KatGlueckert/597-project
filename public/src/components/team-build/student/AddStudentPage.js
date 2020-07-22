@@ -9,7 +9,7 @@ const AddStudentPage = (props) => (
         <StudentForm
             onSubmit={(student) => {
                 props.dispatch(addStudent(student));
-                props.history.push('/team/students');
+                props.history.push('/team/dashboard');
             }}
         />
     </div>

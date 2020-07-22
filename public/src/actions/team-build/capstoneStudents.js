@@ -2,6 +2,7 @@ import uuid from 'uuid';
 
 export const addStudent = (
     {
+        id = '',
         email = '',
         name = '',
         rank = 0,
@@ -11,7 +12,7 @@ export const addStudent = (
 ) => ({
     type:'ADD_CAPSTONE_STUDENT',
     student: {
-        id: uuid(),
+        id: id ? id : uuid(),
         email,
         name,
         rank,
@@ -35,3 +36,25 @@ export const selectDraftGroups = () => ({
     type: 'SELECT_DRAFT_GROUPS'
 });
 
+export const addStudentSurvey = (
+    id,
+    {
+        internships = '',
+        experienceAtInternships = '',
+        subjectsInterestedIn = [],
+        strongestCatagories = [],
+        weakestCategories= [],
+        mastersProgramInterest = false
+    } = {}
+) => ({
+    type: 'ADD_STUDENT_SURVEY',
+    id,
+    survey: {
+        internships,
+        experienceAtInternships,
+        subjectsInterestedIn,
+        strongestCatagories,
+        weakestCategories,
+        mastersProgramInterest
+    }
+});

@@ -24,6 +24,20 @@ export default (state = capstoneStudentReducerDefaultState, action) =>{
             });
         case 'REMOVE_CAPSTONE_STUDENT':
             return state.filter(({ id }) => id !== action.id);
+        case 'ADD_STUDENT_SURVEY':
+            return state.map((student) => {
+                if(student.id === action.id){
+                    return{
+                        ...student,
+                        ...student.surveyStatus=true,
+                        survey: {...action.survey}
+                    }
+                }else{
+                    return{
+                        ...student
+                    }
+                }
+            });
         //case 'SELECT_DRAFT_GROUPS'
         default: 
             return state; 

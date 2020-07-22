@@ -15,7 +15,7 @@ const AppRouter = () => (
             <TeamBuildHeader />
             <Switch>
                 <Route path="/" component={HomePage} exact={true} />
-                <Route path="/team/survey" component={NewSurveyPage} />
+                <Route path="/team/survey/:id" component={NewSurveyPage} />
                 <Route path="/team/students" component={StudentDashboardPage} /> 
                 <Route path="/team/addStudent" component={AddStudentPage} />
                 <Route path="/team/editStudent/:id" component={EditStudentPage} />

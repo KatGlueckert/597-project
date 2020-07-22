@@ -7,10 +7,12 @@ import NewSurveyPage from '../components/team-build/survey/NewSurveyPage';
 import NotFoundPage from '../components/NotFoundPage';
 import StudentDashboardPage from '../components/team-build/student/StudentDashboardPage';
 import EditStudentPage from '../components/team-build/student/EditStudentPage';
+import TeamBuildHeader from '../components/team-build/TeamBuildHeader';
 
 const AppRouter = () => (
     <BrowserRouter>
         <div>
+            <TeamBuildHeader />
             <Switch>
                 <Route path="/" component={HomePage} exact={true} />
                 <Route path="/team/survey" component={NewSurveyPage} />

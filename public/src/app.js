@@ -13,8 +13,8 @@ const store = configureStore();
 const state = store.getState();
 console.log(state);
 
-store.dispatch(addStudent({name: 'Riley', email: 'riley@email.com', rank: 1}));
-store.dispatch(addStudent({name: 'Emma', email: 'emma@email.com', rank: 2}));
+store.dispatch(addStudent({name: 'Riley', email: 'rebyars@crimson.ua.edu', rank: 1}));
+store.dispatch(addStudent({name: 'Willa', email: 'riley.byars81@gmail.com', rank: 2}));
 
 const jsx = (
     <Provider store={store}>

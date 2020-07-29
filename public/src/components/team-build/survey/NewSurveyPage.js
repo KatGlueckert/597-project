@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addStudentSurvey } from '../../../actions/team-build/capstoneStudents';
+import { startAddStudentSurvey } from '../../../actions/team-build/capstoneStudents';
 import SurveyForm from './SurveyForm';
 
 const NewSurveyPage = (props) => (
@@ -8,8 +8,8 @@ const NewSurveyPage = (props) => (
         <h1>Student Survey for: {props.student.name}</h1>
         <SurveyForm
             onSubmit={(survey) => {
-                props.dispatch(addStudentSurvey(props.student.id, survey));
-                props.history.push('/team/survey/thankyou');
+                props.startAddStudentSurvey(props.student.id, survey);
+                props.history.push('/team/surveythankyou');
             }}
         />
     </div>
@@ -21,4 +21,8 @@ const mapStateToProps = (state, props) => {
     }
 }
 
-export default connect(mapStateToProps)(NewSurveyPage);
+const mapDispatchToProps = (dispatch) => ({
+    startAddStudentSurvey: (id, survey) => dispatch(startAddStudentSurvey(id, survey))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewSurveyPage);

@@ -7,6 +7,7 @@ const TeamBuildHeader = () => (
         <NavLink to='/team/dashboard' activeClassName="is-active" exact={true}> Dashboard </NavLink>
         <NavLink to='/team/addStudent' activeClassName="is-active"> Add Student </NavLink>
         <NavLink to='/team/addProjectManager' activeClassName="is-active"> Add Project Manager </NavLink>
+        <NavLink to='/team/addProject' activeClassName="is-active">Add Project</NavLink>
     </header>
 
 );

@@ -38,6 +38,8 @@ export default (state = capstoneStudentReducerDefaultState, action) =>{
                     }
                 }
             });
+        case 'SET_STUDENTS':
+            return action.students;
         //case 'SELECT_DRAFT_GROUPS'
         default: 
             return state; 

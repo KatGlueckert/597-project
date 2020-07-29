@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import StudentForm from './StudentForm';
-import { editStudent, removeStudent } from '../../../actions/team-build/capstoneStudents';
+import { startEditStudent, startRemoveStudent } from '../../../actions/team-build/capstoneStudents';
 
 const EditStudentPage = (props) => {
     return (
@@ -10,12 +10,12 @@ const EditStudentPage = (props) => {
             <StudentForm
                 student={props.student}
                 onSubmit={(student) => {
-                    props.dispatch(editStudent(props.student.id, student));
+                    props.startEditStudent(props.student.id, student);
                     props.history.push('/team/dashboard');
                 }}
             />
             <button onClick={() => {
-                props.dispatch(removeStudent({id: props.student.id}));
+                props.startRemoveStudent({id: props.student.id});
                 props.history.push('/team/dashboard');
             }} > Remove </button>
         </div>
@@ -28,4 +28,9 @@ const mapStateToProps = (state, props) => {
     };
 };
 
-export default connect(mapStateToProps)(EditStudentPage);
+const mapDispatchToProps = (dispatch) => ({
+    startEditStudent: (id, expense) => dispatch(startEditStudent(id, expense)),
+    startRemoveStudent: (expense) => dispatch(startRemoveStudent(expense))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditStudentPage);

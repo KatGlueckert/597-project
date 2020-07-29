@@ -130,7 +130,7 @@ export default class SurveyForm extends React.Component {
                     value={this.state.weakestCategories}
                     onChange={this.onWeakestChange}
                 >
-                    <option value="Analyitcal Skills">Analytical Skills</option>
+                    <option value="Analytical Skills">Analytical Skills</option>
                     <option value="Technical Skills">Technical Skills</option>
                     <option value="Communication Skills">Communication Skills</option>
                     <option value="Team Skills">Team Skills</option>

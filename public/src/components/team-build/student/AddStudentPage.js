@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import StudentForm from './StudentForm';
-import { addStudent } from '../../../actions/team-build/capstoneStudents';
+import { startAddStudent } from '../../../actions/team-build/capstoneStudents';
 
 const AddStudentPage = (props) => (
     <div>
         <h1>Add Student</h1>
         <StudentForm
             onSubmit={(student) => {
-                props.dispatch(addStudent(student));
+                props.startAddStudent(student);
                 props.history.push('/team/dashboard');
             }}
         />
     </div>
 );
 
-export default connect()(AddStudentPage);
+const mapDispatchToProps = (dispatch) => ({
+    startAddStudent: (student) => dispatch(startAddStudent(student))
+});
+
+export default connect(undefined, mapDispatchToProps)(AddStudentPage);

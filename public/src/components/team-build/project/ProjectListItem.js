@@ -7,7 +7,7 @@ const ProjectListItem = ({id, title, company, tags }) => (
             <h3>{title}</h3>
         </Link>
         <p> {company} </p>
-        <p>Tags: {tags.map((tag) => (`${tag}, `))}</p>
+        <p>Tags: {tags.map((tag) => (`| ${tag} | `))}</p>
     </div>
 );
 

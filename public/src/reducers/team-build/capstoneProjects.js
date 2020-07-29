@@ -24,6 +24,8 @@ export default (state = defaultCapstoneProjectReducerDefaultState, action) => {
             });
         case 'REMOVE_PROJECT':
             return state.filter(({ id }) => id !== action.id);
+        case 'SET_PROJECTS':
+            return action.projects;
         default: 
             return state;
     }

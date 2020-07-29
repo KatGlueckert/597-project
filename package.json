@@ -18,6 +18,7 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "6.24.1",
     "css-loader": "0.28.4",
+    "dotenv": "4.0.0",
     "emailjs-com": "^2.6.3",
     "firebase": "4.2.0",
     "live-server": "^1.2.1",

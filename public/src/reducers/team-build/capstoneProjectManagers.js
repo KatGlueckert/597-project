@@ -24,6 +24,8 @@ export default (state = capstoneProjectManagerReducerDefaultState, action) => {
             });
         case 'REMOVE_PROJECT_MANAGER':
             return state.filter(({ id }) => id !== action.id);
+        case 'SET_PROJECT_MANAGERS':
+            return action.projectManagers;
         default:
             return state;
     }

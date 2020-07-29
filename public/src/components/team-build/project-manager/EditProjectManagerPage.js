@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProjectManagerForm from './ProjectManagerForm';
-import { editProjectManager, removeProjectManager } from '../../../actions/team-build/capstoneProjectManagers';
+import { startEditProjectManager, startRemoveProjectManager } from '../../../actions/team-build/capstoneProjectManagers';
 
 const EditProjectManagerPage = (props) => {
     return (
@@ -10,12 +10,12 @@ const EditProjectManagerPage = (props) => {
             <ProjectManagerForm
                 projectManager={props.projectManager} 
                 onSubmit={(projectManager) => {
-                    props.dispatch(editProjectManager(props.projectManager.id, projectManager));
+                    props.startEditProjectManager(props.projectManager.id, projectManager);
                     props.history.push('/team/dashboard');
                 }}
             />
             <button onClick={() => {
-                props.dispatch(removeProjectManager({id: props.projectManager.id}));
+                props.startRemoveProjectManager({id: props.projectManager.id});
                 props.history.push('/team/dashboard');
             }}> Remove </button>
         </div>
@@ -28,4 +28,9 @@ const mapStateToProps = (state, props) => {
     }
 };
 
-export default connect(mapStateToProps)(EditProjectManagerPage);
+const mapDispatchToProps = (dispatch) => ({
+    startEditProjectManager: (id, updates) => dispatch(startEditProjectManager(id, updates)),
+    startRemoveProjectManager: ({id}) => dispatch(startRemoveProjectManager({id}))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditProjectManagerPage);

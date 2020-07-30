@@ -7,6 +7,7 @@ export default class ProjectForm extends React.Component{
         this.state = {
             title: props.project ? props.project.title : '',
             company: props.project ? props.project.company : '',
+            description: props.project ? props.project.description : '',
             tags: props.project ? props.project.tags : []
         };
     };
@@ -20,6 +21,11 @@ export default class ProjectForm extends React.Component{
         const company = e.target.value;
         this.setState(() =>({ company }));
     };
+
+    onDescriptionChange = (e) => {
+        const description = e.targer.value;
+        this.setState(() => ({ description }));
+    }
 
     onTagsChange = (e) => {
         const newTag = e.target.value;
@@ -64,6 +70,12 @@ export default class ProjectForm extends React.Component{
                         placeholder="Company"
                         value={this.state.company}
                         onChange={this.onCompanyChange}
+                    />
+                    <textarea
+                        type="text"
+                        placeholder="Description"
+                        value={this.state.description}
+                        onChange={this.onDescriptionChange}
                     />
                     <select
                         multiple={true}

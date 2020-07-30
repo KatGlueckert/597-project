@@ -40,6 +40,32 @@ export default (state = capstoneStudentReducerDefaultState, action) =>{
             });
         case 'SET_STUDENTS':
             return action.students;
+        case 'ADD_STUDENT_TO_PROJECT':
+            return state.map((student) => {
+                if (student.id === action.id){
+                    return {
+                        ...student,
+                        projectId: action.projectId
+                    }
+                }else{
+                    return{
+                        ...student
+                    }
+                }
+            });
+        case 'REMOVE_STUDENT_FROM_PROJECT': 
+            return state.map((student) => {
+                if(student.id === action.id){
+                    return {
+                        ...student,
+                        projectId: undefined
+                    };
+                }else{
+                    return {
+                        ...student
+                    };
+                };
+            });
         //case 'SELECT_DRAFT_GROUPS'
         default: 
             return state; 

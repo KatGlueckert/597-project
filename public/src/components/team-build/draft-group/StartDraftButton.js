@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { setProject } from '../../../actions/team-build/filters';
 
 const StartDraftButton = (props) => (
     <div>
     <Link to={`/team/draft`} >
         <button
             disabled={ props.projectManagers.length !== props.projects.length || !props.students}
+            onClick={() => {
+                props.setProject(props.projects[0].id)
+            }}
         > Start Draft </button>
     </Link>
     </div>
@@ -20,4 +24,8 @@ const mapStateToProps = (state) => (
     }
 );
 
-export default connect(mapStateToProps)(StartDraftButton);
+const mapDispatchToProps = (dispatch) => ({
+    setProject: (project) => dispatch(setProject(project))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StartDraftButton);

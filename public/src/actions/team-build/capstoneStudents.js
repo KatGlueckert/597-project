@@ -104,3 +104,32 @@ export const startAddStudentSurvey = (id, surveyData = {}) => {
         });
     };
 };
+
+//ADD_STUDENT_TO_PROJECT
+export const addStudentToProject = (id, projectId) => ({
+    type: 'ADD_STUDENT_TO_PROJECT',
+    id,
+    projectId
+});
+
+export const startAddStudentToProject = (id, projectId) => {
+    return (dispatch) => {
+        return database.ref(`students/${id}/projectId`).set(`${projectId}`).then(() => {
+            dispatch(addStudentToProject(id, projectId));
+        });
+    };
+};
+
+//REMOVE_STUDENT_FROM_PROJECT
+export const removeStudentFromProject = ({id}) => ({
+    type:'REMOVE_STUDENT_FROM_PROJECT',
+    id
+});
+
+export const startRemoveStudentFromProject = ({id}) => {
+    return (dispatch) => {
+        return database.ref(`students/${id}/projectId`).remove().then(() => {
+            dispatch(removeStudentFromProject({id}));
+        });
+    };
+};

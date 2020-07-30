@@ -11,9 +11,10 @@ export const startAddProject = (projectData = {}) => {
         const {
             company = '',
             title = '',
+            description= '',
             tags = []
         } =  projectData;
-        const project = {company, title, tags};
+        const project = {company, title, description, tags};
         return database.ref('projects').push(project).then((ref) => {
             dispatch(addProject({
                 id: ref.key,

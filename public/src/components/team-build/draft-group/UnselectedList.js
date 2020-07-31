@@ -1,9 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import unselectedStudets from '../../../selectors/team-build/unselectedStudents';
+import UnselectedListItem from './UnselectedListItem';
 
-const UnselectedList = () => (
+const UnselectedList = ({students}) => (
     <div>
-        <p>Unselected List</p>
+        <h3>Unselected Students</h3>
+        {
+            students.map((student) => (
+                <UnselectedListItem {...student} key={student.id} />
+            ))
+        }
     </div>
 );
 
-export default UnselectedList;
+const mapStateToProps = (state) => ({
+    students: unselectedStudets(state.students, state.filters)
+});
+
+export default connect(mapStateToProps)(UnselectedList);

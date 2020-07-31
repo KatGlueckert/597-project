@@ -7,7 +7,7 @@ const StartDraftButton = (props) => (
     <div>
     <Link to={`/team/draft`} >
         <button
-            disabled={ props.projectManagers.length !== props.projects.length || !props.students}
+            disabled={ props.projectManagers.length !== props.projects.length || !props.students || !props.projects || props.students.filter(({surveyStatus}) => !surveyStatus).length > 0}
             onClick={() => {
                 props.setProject(props.projects[0].id)
             }}

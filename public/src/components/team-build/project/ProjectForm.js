@@ -23,7 +23,7 @@ export default class ProjectForm extends React.Component{
     };
 
     onDescriptionChange = (e) => {
-        const description = e.targer.value;
+        const description = e.target.value;
         this.setState(() => ({ description }));
     }
 
@@ -48,7 +48,8 @@ export default class ProjectForm extends React.Component{
             this.props.onSubmit({
                 title: this.state.title,
                 company: this.state.company,
-                tags: this.state.tags
+                tags: this.state.tags,
+                description: this.state.description
             });
         }
     };

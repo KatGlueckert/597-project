@@ -4,11 +4,11 @@ export const setTextFilter = (text = '') => ({
 });
 
 export const sortByRank = () => ({
-    type: 'SORT_BY_AMOUNT'
+    type: 'SORT_BY_RANK'
 });
 
 export const sortByName = () => ({
-    type: 'SORT_BY_AMOUNT'
+    type: 'SORT_BY_NAME'
 });
 
 export const setProject = (id) => ({

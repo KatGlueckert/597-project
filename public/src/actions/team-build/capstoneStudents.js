@@ -97,7 +97,7 @@ export const startAddStudentSurvey = (id, surveyData = {}) => {
             mastersProgramInterest = false
         } = surveyData;
         const survey = { internships, experienceAtInternships, subjectsInterestedIn, strongestCatagories, weakestCategories, mastersProgramInterest};
-        database.ref(`students/${id}/survey`).push(survey).then(() => {
+        database.ref(`students/${id}/survey`).set({...survey}).then(() => {
             database.ref(`students/${id}/surveyStatus`).set(true).then(() => {
                 dispatch(addStudentSurvey(id, survey));
             });

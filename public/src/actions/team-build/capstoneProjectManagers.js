@@ -70,3 +70,17 @@ export const startSetProjectManagers = () => {
     };
 }
 
+export const addProjectManagerToProject = (id, projectId) => ({
+    type: 'ADD_PROJECT_MANAGER_TO_PROJECT',
+    id,
+    projectId
+});
+
+export const startAddProjectManagerToProject = (id, projectId) => {
+    return (dispatch) => {
+        return database.ref(`projectManagers/${id}/projectId`).set(`${projectId}`).then(() => {
+            dispatch(addProjectManagerToProject(id, projectId));
+        });
+    };
+};
+

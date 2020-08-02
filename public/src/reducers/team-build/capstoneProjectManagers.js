@@ -26,6 +26,19 @@ export default (state = capstoneProjectManagerReducerDefaultState, action) => {
             return state.filter(({ id }) => id !== action.id);
         case 'SET_PROJECT_MANAGERS':
             return action.projectManagers;
+        case 'ADD_PROJECT_MANAGER_TO_PROJECT':
+            return state.map((projectManager) => {
+                if(projectManager.id === action.id){
+                    return {
+                        ...projectManager,
+                        projecetId: action.projectId
+                    };
+                }else{
+                    return{
+                        ...projectManager
+                    };
+                }
+            });
         default:
             return state;
     }

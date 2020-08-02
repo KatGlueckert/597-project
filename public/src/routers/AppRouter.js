@@ -6,6 +6,7 @@ import AddProjectPage from '../components/team-build/project/AddProjectPage';
 import AddProjectManagerPage from '../components/team-build/project-manager/AddProjectManagerPage';
 import AdminDashboardPage from '../components/team-build/AdminDashboardPage';
 import DraftPage from '../components/team-build/draft-group/DraftPage';
+import DraftSummary from '../components/team-build/draft-group/DraftSummary';
 import EditStudentPage from '../components/team-build/student/EditStudentPage';
 import EditProjectPage from '../components/team-build/project/EditProjectPage';
 import EditProjectManagerPage from '../components/team-build/project-manager/EditProjectManagerPage';
@@ -24,7 +25,8 @@ const AppRouter = () => (
                 <Route path="/team/survey/:id" component={NewSurveyPage} />
                 <Route path="/team/surveythankyou" component={SurveyThankYou} exact={true} />
                 <Route path="/team/dashboard" component={AdminDashboardPage} /> 
-                <Route path="/team/draft" component={DraftPage} />
+                <Route path="/team/draft" component={DraftPage} exact={true}/>
+                <Route path="/team/draftSummary" component={DraftSummary} />
                 <Route path="/team/addStudent" component={AddStudentPage} />
                 <Route path="/team/addProject" component={AddProjectPage} />
                 <Route path="/team/addProjectManager" component={AddProjectManagerPage} />

@@ -4,9 +4,15 @@ import UnselectedSection from './UnselectedSection';
 
 const DraftPage = () => (
     <div>
-        <h3>Draft Page</h3>
-        <ProjectSection />
-        <UnselectedSection />
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Draft Page</h1>
+            </div>
+        </div>
+        <div>
+            <ProjectSection />
+            <UnselectedSection />
+        </div>
     </div>
 );
 

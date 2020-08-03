@@ -1,5 +1,4 @@
 import database from '../../firebase/firebase';
-import { setProjectManagers } from './capstoneProjectManagers';
 
 export const addProject = (project) => ({
     type: 'ADD_PROJECT',
@@ -30,10 +29,26 @@ export const editProject = (id, updates) => ({
     updates
 });
 
+export const startEditProject = (id, updates) => {
+    return (dispatch) => {
+        return database.ref(`projects/${id}`).update({...updates}).then(() => {
+            dispatch(editProject(id, updates));
+        });
+    };
+};
+
 export const removeProject = ({ id }) => ({
     type: 'REMOVE_PROJECT',
     id
 });
+
+export const startRemoveProject = ({ id }) => {
+    return (dispatch) => {
+        return database.ref(`projects/${id}`).remove().then(() => {
+            dispatch(removeProject({id}));
+        })
+    }
+}
 
 export const setProjects = (projects) => ({
     type: 'SET_PROJECTS',

@@ -5,13 +5,19 @@ import { startAddProjectManager } from '../../../actions/team-build/capstoneProj
 
 const AddProjectManagerPage = (props) => (
     <div>
-        <h1>Add Project Manager</h1>
-        <ProjectManagerForm 
-            onSubmit={(projectManager) => {
-                props.startAddProjectManager(projectManager);
-                props.history.push('/team/dashboard');
-            }}
-        />
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Add Project Manager</h1>
+            </div>
+        </div>
+        <div className="content-container">
+            <ProjectManagerForm 
+                onSubmit={(projectManager) => {
+                    props.startAddProjectManager(projectManager);
+                    props.history.push('/team/dashboard');
+                }}
+            />  
+        </div>
     </div>
 );
 

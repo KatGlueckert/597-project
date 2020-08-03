@@ -5,13 +5,19 @@ import SurveyForm from './SurveyForm';
 
 const NewSurveyPage = (props) => (
     <div>
-        <h1>Student Survey for: {props.student.name}</h1>
-        <SurveyForm
-            onSubmit={(survey) => {
-                props.startAddStudentSurvey(props.student.id, survey);
-                props.history.push('/team/surveythankyou');
-            }}
-        />
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Student Survey for: {props.student.name}</h1>
+            </div>
+        </div>
+        <div className="content-container">
+            <SurveyForm
+                onSubmit={(survey) => {
+                    props.startAddStudentSurvey(props.student.id, survey);
+                    props.history.push('/team/surveythankyou');
+                }}
+            />
+        </div>
     </div>
 );
 

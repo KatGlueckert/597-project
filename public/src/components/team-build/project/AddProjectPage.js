@@ -5,13 +5,19 @@ import { startAddProject } from '../../../actions/team-build/capstoneProjects';
 
 const AddProjectPage = (props) => (
     <div>
-        <h1>Add Project</h1>
-        <ProjectForm 
-            onSubmit={(project) => {
-                props.startAddProject(project);
-                props.history.push('/team/dashboard');
-            }}
-        />
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Add Project</h1>
+            </div>
+        </div>  
+        <div className="content-container">
+            <ProjectForm 
+                onSubmit={(project) => {
+                    props.startAddProject(project);
+                    props.history.push('/team/dashboard');
+                }}
+            />
+        </div>
     </div>
 );
 

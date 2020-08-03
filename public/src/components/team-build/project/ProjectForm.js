@@ -56,9 +56,8 @@ export default class ProjectForm extends React.Component{
 
     render() {
         return (
-            <div>
-                {this.state.errorMessage && <p>this.state.errorMessage</p>}
-                <form onSubmit={this.onSubmit}>
+                <form className="form" onSubmit={this.onSubmit}>
+                    {this.state.errorMessage && <p className="form__error">this.state.errorMessage</p>}
                     <input 
                         type="text"
                         placeholder="Title of Project"
@@ -90,9 +89,10 @@ export default class ProjectForm extends React.Component{
                         <option value="Communication Skills">Communication Skills</option>
                         <option value="Team Skills">Team Skills</option>
                     </select>
-                    <button> Save Project</button>
+                    <div>
+                        <button className="button"> Save Project</button>
+                    </div>
                 </form>
-            </div>
         );
     };
 }

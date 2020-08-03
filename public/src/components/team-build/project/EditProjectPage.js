@@ -1,23 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProjectForm from './ProjectForm';
-import { editProject, removeProject } from '../../../actions/team-build/capstoneProjects';
+import { startEditProject, startRemoveProject } from '../../../actions/team-build/capstoneProjects';
 
 const EditProjectPage = (props) => {
     return (
         <div>
-            <h1> Edit Project </h1>
-            <ProjectForm
-                project={props.project} 
-                onSubmit={(project) => {
-                    props.dispatch(editProject(props.project.id, project));
+            <div className="page-header">
+                <div className="content-container">
+                    <h1 className="page-header__title">Edit Project</h1>
+                </div>
+            </div>
+            <div className="content-container">
+                <ProjectForm
+                    project={props.project} 
+                    onSubmit={(project) => {
+                        props.dispatch(startEditProject(props.project.id, project));
+                        props.history.push('/team/dashboard');
+                    }}
+                />
+                <button className="button button--secondary" onClick={() => {
+                    props.dispatch(startRemoveProject({id: props.project.id}));
                     props.history.push('/team/dashboard');
-                }}
-            />
-            <button onClick={() => {
-                props.dispatch(removeProject({id: props.project.id}));
-                props.history.push('/team/dashboard');
-            }}> Remove Project</button>
+                }}> Remove Project</button>
+            </div>
         </div>
     )
 }

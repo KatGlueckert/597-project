@@ -79,9 +79,8 @@ export default class SurveyForm extends React.Component {
 
     render() {
         return (
-            <div>
-            {this.state.errorMessage && this.state.errorMessage}
-            <form onSubmit={this.onSubmit}>
+            <form className="form" onSubmit={this.onSubmit}>
+            {this.state.errorMessage && <p className="form__error">this.state.errorMessage</p>}
             <label>
                 Where did you intern this past summer? If you’ve had more than one internship, or have participated in a co-op, please include them as well.
                 <textarea
@@ -148,9 +147,8 @@ export default class SurveyForm extends React.Component {
                     <option value="Maybe">Maybe</option>
                 </select>
             </label>
-            <button>Submit Form</button>
+            <button className="button">Submit Form</button>
             </form>
-            </div>
         )
     }
     

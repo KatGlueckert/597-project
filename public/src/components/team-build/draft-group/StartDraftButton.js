@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { setProject } from '../../../actions/team-build/filters';
 
 const StartDraftButton = (props) => (
-    <div>
+    <div className="content-container">
     <Link to={`/team/draft`} >
         <button
+            className="button"
             disabled={ props.projectManagers.length !== props.projects.length || !props.students || !props.projects || props.students.filter(({surveyStatus}) => !surveyStatus).length > 0}
             onClick={() => {
                 props.setProject(props.projects[0].id)

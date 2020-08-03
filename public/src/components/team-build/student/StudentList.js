@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import StudentListItem from './StudentListItem';
 
 const StudentList = (props) => (
-    <div>
-        <h1>Students</h1>
+    <div className="content-container">
+        <div className="list-header">
+            <div className="show-for-desktop">Student</div>
+            <div className="show-for-desktop"></div>
+        </div>
         {props.students.map((student) => (
             <StudentListItem {...student} key={student.id}  />
         ))}

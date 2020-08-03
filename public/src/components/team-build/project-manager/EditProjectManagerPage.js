@@ -6,18 +6,24 @@ import { startEditProjectManager, startRemoveProjectManager } from '../../../act
 const EditProjectManagerPage = (props) => {
     return (
         <div>
-            <h1> Edit Project Manager </h1>
-            <ProjectManagerForm
-                projectManager={props.projectManager} 
-                onSubmit={(projectManager) => {
-                    props.startEditProjectManager(props.projectManager.id, projectManager);
+            <div className="page-header">
+                <div className="content-container">
+                    <h1 className="page-header__title">Edit Project Manager</h1>
+                </div>
+            </div>
+            <div className="content-container">
+                <ProjectManagerForm
+                    projectManager={props.projectManager} 
+                    onSubmit={(projectManager) => {
+                        props.startEditProjectManager(props.projectManager.id, projectManager);
+                        props.history.push('/team/dashboard');
+                    }}
+                />
+                <button className="button button--secondary" onClick={() => {
+                    props.startRemoveProjectManager({id: props.projectManager.id});
                     props.history.push('/team/dashboard');
-                }}
-            />
-            <button onClick={() => {
-                props.startRemoveProjectManager({id: props.projectManager.id});
-                props.history.push('/team/dashboard');
-            }}> Remove </button>
+                }}> Remove </button>
+            </div>
         </div>
     )
 }

@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ProjectListItem = ({id, title, company, tags }) => (
-    <div>
-        <Link to={`/team/editProject/${id}`}>
-            <h3>{title}</h3>
+        <Link className="list-item" to={`/team/editProject/${id}`}>
+            <div >
+                <h3 className="list-item__title">{title}</h3>
+                <p className="list-item__subtitle">Tags: {tags.map((tag) => (`| ${tag} | `))}</p>
+            </div>    
+            <div>
+            <h3 className="list-item_data"> {company} </h3>
+            </div>
         </Link>
-        <p> {company} </p>
-        <p>Tags: {tags.map((tag) => (`| ${tag} | `))}</p>
-    </div>
 );
 
 export default ProjectListItem;

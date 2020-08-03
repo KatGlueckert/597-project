@@ -6,6 +6,7 @@ const UnselectedFilters = (props) => (
     <div>
         <p>Sort By: 
         <select
+        className="select"
         value={props.sortBy}
         onChange={(e) => {
             if(e.target.value === 'rank'){

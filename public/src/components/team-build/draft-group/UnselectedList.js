@@ -5,15 +5,18 @@ import unselectedStudets from '../../../selectors/team-build/unselectedStudents'
 import UnselectedListItem from './UnselectedListItem';
 
 const UnselectedList = ({students}) => (
-    <div>
-        <h3>Unselected Students</h3>
+    <div className="content-container">
+        <div className="list-header">
+            <div className="show-for-desktop">Student</div>
+            <div className="show-for-desktop"></div>
+        </div>
         {
             students.length > 0 ?
             students.map((student) => (
                 <UnselectedListItem {...student} key={student.id} />
             )) :
             <div> 
-            <p>All students are selected.</p>
+            <p className="list-item">All students are selected.</p>
             <FinishDraftButton />
             </div>
         }

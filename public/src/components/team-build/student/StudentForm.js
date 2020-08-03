@@ -44,9 +44,8 @@ export default class StudentForm extends React.Component{
 
     render() {
         return (
-            <div>
-                {this.state.errorMessage && <p>this.state.errorMessage</p>}
-                <form onSubmit={this.onSubmit}>
+                <form className="form" onSubmit={this.onSubmit}>
+                {this.state.errorMessage && <p className="form__error">this.state.errorMessage</p>}
                     <input 
                         type="text"
                         placeholder="Name"
@@ -66,9 +65,10 @@ export default class StudentForm extends React.Component{
                         value={this.state.rank}
                         onChange={this.onRankChange}
                     />
-                    <button> Save Student </button>
+                    <div>
+                    <button className="button"> Save Student </button>
+                    </div>
                 </form>
-            </div>
         );
     };
 }

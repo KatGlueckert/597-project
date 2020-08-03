@@ -3,8 +3,8 @@ import UnselectedFilters from './UnselectedFilters';
 import UnselectedList from './UnselectedList';
 
 const UnselectedSection = () => (
-    <div>
-        <p>Unselected Section</p>
+    <div className="content-container">
+        <h1>Unselected Section</h1>
         <UnselectedFilters />
         <UnselectedList />
     </div>

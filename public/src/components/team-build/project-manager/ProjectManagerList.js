@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import ProjectManagerListItem from './ProjectManagerListItem';
 
 const ProjectMangerList = (props) => (
-    <div>
-        <h1>Project Managers</h1>
+    <div className="content-container">
+        <div className="list-header">
+            <div>Project Manager </div>
+        </div>
         {props.projectManagers.map((pm) => (
             <ProjectManagerListItem {...pm} key={pm.id} />
         ))}

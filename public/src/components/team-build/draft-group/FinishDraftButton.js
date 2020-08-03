@@ -6,12 +6,16 @@ import { startAddProjectManagerToProject } from '../../../actions/team-build/cap
 const FinishDraftButton = ({projectManagers, projects, startAddProjectManagerToProject}) => (
     <div>
     <Link to='/team/draftSummary'>
-    <button onClick={() => {
+    <button className="button" onClick={() => {
+        const projList = [];
+        projects.map((project) => {
+            projList.push(project.id);
+        });
         projectManagers.map((projectManager) => {
             const randomNum = Math.floor(Math.random() * projects.length);
-            const currentProj = projects[randomNum];
-            startAddProjectManagerToProject(projectManager.id, currentProj.id);
-            projects.splice(randomNum, 1);
+            const currentProjId = projList[randomNum];
+            startAddProjectManagerToProject(projectManager.id, currentProjId);
+            projList.splice(randomNum, 1);
         });
         console.log('completed');
     }}>Finish Draft</button>

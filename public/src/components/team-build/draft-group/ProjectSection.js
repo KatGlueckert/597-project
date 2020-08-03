@@ -5,7 +5,7 @@ import ProjectMemberList from './ProjectMemberList';
 
 
 const ProjectSection = () => (
-    <div>
+    <div className="content-container">
         <ProjectFilter />
         <ProjectDescription />
         <ProjectMemberList />

@@ -6,7 +6,12 @@ import { startEditStudent, startRemoveStudent } from '../../../actions/team-buil
 const EditStudentPage = (props) => {
     return (
         <div>
-            <h1> Edit Student </h1>
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Edit Student</h1>
+            </div>
+        </div>
+        <div className="content-container">
             <StudentForm
                 student={props.student}
                 onSubmit={(student) => {
@@ -14,10 +19,12 @@ const EditStudentPage = (props) => {
                     props.history.push('/team/dashboard');
                 }}
             />
-            <button onClick={() => {
+            <button className="button button--secondary" onClick={() => {
                 props.startRemoveStudent({id: props.student.id});
                 props.history.push('/team/dashboard');
             }} > Remove </button>
+        </div>
+
         </div>
     );
 };

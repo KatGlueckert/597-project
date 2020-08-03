@@ -23,8 +23,8 @@ const onSubmitSurveys = ({students}) => {
 };
 
 const SubmitSurveysButton = (props) => (
-    <div>
-        <button onClick={(e) => onSubmitSurveys(props)}> Send Out Surveys to {props.students.length} students </button>
+    <div className='content-container'>
+        <button className="button" onClick={(e) => onSubmitSurveys(props)}> Send Out Surveys to {props.students.length} students </button>
     </div>
 );
 

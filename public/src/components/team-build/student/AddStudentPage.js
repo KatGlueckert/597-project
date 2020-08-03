@@ -5,13 +5,19 @@ import { startAddStudent } from '../../../actions/team-build/capstoneStudents';
 
 const AddStudentPage = (props) => (
     <div>
-        <h1>Add Student</h1>
-        <StudentForm
-            onSubmit={(student) => {
-                props.startAddStudent(student);
-                props.history.push('/team/dashboard');
-            }}
-        />
+        <div className="page-header">
+            <div className="content-container">
+                <h1 className="page-header__title">Add Student</h1>
+            </div>
+        </div>
+        <div className="content-container">
+            <StudentForm
+                onSubmit={(student) => {
+                    props.startAddStudent(student);
+                    props.history.push('/team/dashboard');
+                }}
+            />
+        </div>
     </div>
 );
 

@@ -38,8 +38,9 @@ export default class ProjectManagerForm extends React.Component{
     render() {
         return (
             <div>
-                {this.state.errorMessage && <p>this.state.errorMessage</p>}
-                <form onSubmit={this.onSubmit}>
+                
+                <form className="form" onSubmit={this.onSubmit}>
+                {this.state.errorMessage && <p className="form__error">this.state.errorMessage</p>}
                     <input 
                         type="text"
                         placeholder="Name"
@@ -53,7 +54,9 @@ export default class ProjectManagerForm extends React.Component{
                         value={this.state.email}
                         onChange={this.onEmailChange}
                     />
-                    <button> Save Project Manager </button>
+                    <div>
+                        <button className="button"> Save Project Manager </button>
+                    </div>
                 </form>
             </div>
         );

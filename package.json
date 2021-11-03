@@ -25,7 +25,7 @@
     "react-modal": "2.2.2",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
-    "validator": "8.0.0",
+    "validator": "13.7.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
